@@ -9,6 +9,10 @@ import org.robolectric.util.ReflectionHelpers
 inline fun <reified F : Fragment> buildTestActivity(): ActivityController<FragmentTestActivity<F>> =
         ActivityController.of(FragmentTestActivity(F::class.java))
 
+/**
+ * This class is used when activity is too complicated and can not be build
+ * fragment with buildActivity / buildFragment.
+ */
 class FragmentTestActivity<F : Fragment>(
         private val fragmentClass: Class<F>
 ) : AppCompatActivity() {
